@@ -10,14 +10,14 @@ const data =  [
     },
     {
       id: 2,
-      name: "speaker",
-      price: 1400,
+      name: "keyboard",
+      price: 2100,
       image: img2,
     },
     {
       id: 3,
-      name: "speaker",
-      price: 1400,
+      name: "charger",
+      price: 900,
       image: img3,
     },
   ]

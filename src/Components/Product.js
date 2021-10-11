@@ -5,7 +5,7 @@ const Product = ({pd , onAdd}) => {
         <div>
             <img className="small" src={pd.image} alt=''/>
             <h3>{pd.name}</h3>
-            <div>${pd.price}</div>
+            <h3><small>${pd.price}</small></h3>
             <div>
                 <button onClick={() => onAdd(pd)} >Add to cart</button>
             </div>

@@ -1,6 +1,10 @@
 import React from "react";
 
 const Basket = ({ cartItems, onAdd, onRemove }) => {
+  const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
+  const taxPrice = itemsPrice * 0.14;
+  const shippingPrice = itemsPrice > 2000 ? 0 : 50;
+  const totalPrice = itemsPrice + taxPrice + shippingPrice;
   return (
     <aside className="block col-1">
       <h2>Cart Items</h2>
@@ -12,7 +16,7 @@ const Basket = ({ cartItems, onAdd, onRemove }) => {
             <button onClick={() => onAdd(item)} className="add">
               +
             </button>
-            <button onClick={() => onAdd(item)} className="remove">
+            <button onClick={() => onRemove(item)} className="remove">
               -
             </button>
           </div>
@@ -21,6 +25,31 @@ const Basket = ({ cartItems, onAdd, onRemove }) => {
           </div>
         </div>
       ))}
+      {cartItems.length !== 0 && (
+        <>
+        <hr></hr>
+        <div className="row">
+          <div className="col-2">Items Price</div>
+          <div className="col-1 text-right">${itemsPrice.toFixed(2)}</div>
+        </div>
+        <div className="row">
+          <div className="col-2">Tax Price</div>
+          <div className="col-1 text-right">${taxPrice.toFixed(2)}</div>
+        </div>
+        <div className="row">
+          <div className="col-2">Shipping Price</div>
+          <div className="col-1 text-right">${shippingPrice.toFixed(2)}</div>
+        </div>
+        <div className="row">
+          <div className="col-2"><strong>Total Price</strong></div>
+          <div className="col-1 text-right"><strong>${totalPrice.toFixed(2)}</strong></div>
+        </div>
+        <hr/>
+        <div className="row">
+          <button onClick={() => alert('Implement Checkout')}>checkout</button>
+        </div>
+        </>
+      )}
     </aside>
   );
 };
