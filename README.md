@@ -1,1 +1,1 @@
-# Small Shopping Cart
+# React Shopping Cart
