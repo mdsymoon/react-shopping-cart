@@ -27,9 +27,9 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{marginTop:'100px'}}>
       <Header countCartItems={cartItems.length}></Header>
-      <div className="row">
+      <div className="row" >
         <Main onAdd={onAdd} ></Main>
         <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>
       </div>
